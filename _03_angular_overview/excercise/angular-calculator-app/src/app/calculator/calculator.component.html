@@ -1,0 +1,13 @@
+<label>Enter number 1:</label>
+<input #first type="number" (change)="changFirst(first.value)"><br>
+<label>Enter number 2 :</label>
+<input #lastNum type="number" (change)="changSecond( lastNum.value)"><br>
+<input  type="button" value="add" (click)="calculationResults('add')" >
+<input  type="button" value="sub" (click)="calculationResults('sub')" >
+<input  type="button" value="mul" (click)="calculationResults('mul')" >
+<input  type="button" value="div" (click)="calculationResults('div')" ><br>
+<p>Result: {{result}}</p>
+
+
+
+

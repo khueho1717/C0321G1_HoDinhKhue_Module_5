@@ -15,4 +15,4 @@ var sum = function (num) {
     }
     return sum;
 };
-console.log(sum(5));
+console.log("tổng các số fibo trong dãy là: "+sum(5));
