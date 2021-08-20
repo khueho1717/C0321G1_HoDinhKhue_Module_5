@@ -1,0 +1,55 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="row">
+  <div class="col-10 m-auto p-5">
+    <h2>Create Contract</h2>
+
+    <form action="/contracts/create-contract" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Start date times</label>
+          <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail11">End date times</label>
+          <input type="date" class="form-control" id="exampleInputEmail11" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail">Deposit</label>
+          <input type="number" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                 placeholder="Enter email" >
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect14">Employee</label>
+          <select class="form-control" id="exampleFormControlSelect14">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect4">Customer</label>
+          <select class="form-control" id="exampleFormControlSelect4">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect7">Service</label>
+          <select class="form-control" id="exampleFormControlSelect7" >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Contract</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

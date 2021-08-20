@@ -1,0 +1,71 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="row">
+  <div class="col-10 m-auto p-5">
+    <h2>Create Service</h2>
+    <form action="/services/create-service" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Service Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="exampleInputEmail5">Code Service</label>
+          <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="exampleInputEmail">Area</label>
+          <input type="number" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail8">Cost</label>
+          <input type="number" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Max People</label>
+          <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect4">Rent Type</label>
+          <select class="form-control" id="exampleFormControlSelect4">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect7">Service Type</label>
+          <select class="form-control" id="exampleFormControlSelect7">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword11">Standard Room</label>
+          <input type="text" class="form-control" id="exampleInputPassword11">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputCity2">Desciption</label>
+          <input type="text" class="form-control" id="inputCity2">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputCity22">Pool Area</label>
+          <input type="number" class="form-control" id="inputCity22">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Number Of Floor</label>
+          <input type="number" class="form-control" id="inputZip">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Service</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

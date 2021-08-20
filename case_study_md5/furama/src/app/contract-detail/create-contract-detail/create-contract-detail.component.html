@@ -1,0 +1,44 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="container ">
+  <div class="row ">
+    <div class="col-10 m-auto p-5">
+      <h2>Create Contract Detail</h2>
+
+      <form action="/contract-details/create-contract-detail" method="post">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlSelect4">Contract Id</label>
+            <select class="form-control" id="exampleFormControlSelect4">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlSelect14">Attach Service</label>
+            <select class="form-control" id="exampleFormControlSelect14">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="exampleInputEmail11">Quantity</label>
+            <input type="number" class="form-control" id="exampleInputEmail11" aria-describedby="emailHelp">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Contract Detail</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
