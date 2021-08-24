@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-register',
@@ -11,6 +13,7 @@ export class RegisterComponent implements OnInit {
   contactForm = new FormGroup({
     email: new FormControl('',[Validators.email,Validators.required]),
     password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+    confirmPassword: new FormControl('',[Validators.required]),
     country: new FormControl('',[Validators.required]),
     age: new FormControl('',[Validators.required,Validators.min(18)]),
     gender: new FormControl('',[Validators.required]),
@@ -20,6 +23,13 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  checkPasswords: ValidatorFn = (contactForm: AbstractControl):  ValidationErrors | null => {
+    let pass = contactForm.get('password').value;
+    let confirmPass = contactForm.get('confirmPassword').value
+
+    return pass === confirmPass ? null : { notSame: true }
   }
 
   onSubmit() {

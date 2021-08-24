@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<h2 class="text-center">Employee List</h2>
+<table class="table table-striped table-hover text-center">
+  <thead class="text-secondary">
+  <th scope="col">No</th>
+  <th scope="col">#</th>
+  <th scope="col">Code service</th>
+  <th scope="col">Name</th>
+  <th scope="col">Area</th>
+  <th scope="col">Cost</th>
+  <th scope="col">Rent type</th>
+  <th scope="col">Service type</th>
+  <th scope="col">Number of Floor</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let s of services;index as i">
+    <td>{{i + 1}}</td>
+    <td>{{s.serviceId}}</td>
+    <td>{{s.serviceCode}}</td>
+    <td>{{s.serviceName}}</td>
+    <td>{{s.serviceArea}}</td>
+    <td>{{s.serviceCost}}</td>
+    <td>{{s.rentType}}</td>
+    <td>{{s.serviceType}}</td>
+    <td>{{s.numberOfFloors}}</td>
+  </tr>
+  </tbody>
+</table>
+<app-footer></app-footer>

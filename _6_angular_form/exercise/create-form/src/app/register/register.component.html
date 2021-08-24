@@ -36,6 +36,19 @@
       </div>
     </div>
     <div class="row mb-3">
+      <label for="inputPassword13" class="col-sm-2 col-form-label">Confirm Password</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="inputPassword13" name="confirmPassword" formControlName="confirmPassword">
+        <div
+          *ngIf="!contactForm.controls.confirmPassword?.valid && (contactForm.controls.confirmPassword?.dirty
+    ||contactForm.controls.confirmPassword?.touched)" >
+          <div [hidden]="!contactForm.controls.confirmPassword.errors.required">
+            <p class="text-danger">please input</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
       <label for="inputState" class="col-sm-2 col-form-label">Country</label>
       <div class="col-sm-5">
         <select id="inputState" class="form-select" name="country" formControlName="country">
