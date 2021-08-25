@@ -4,7 +4,7 @@ export interface Customer {
   nameCustomer: string;
   birthDate: string;
   gender: number;
-  idCart: string;
+  idCard: string;
   numberPhone: string;
   email: string;
   customerType: string;

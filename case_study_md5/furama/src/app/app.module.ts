@@ -14,6 +14,7 @@ import { ListCustomerComponent } from './customer/list-customer/list-customer.co
 import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
 import { ListServiceComponent } from './service/list-service/list-service.component';
 import { ListContractComponent } from './contract/list-contract/list-contract.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { ListContractComponent } from './contract/list-contract/list-contract.co
     ListServiceComponent,
     ListContractComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
