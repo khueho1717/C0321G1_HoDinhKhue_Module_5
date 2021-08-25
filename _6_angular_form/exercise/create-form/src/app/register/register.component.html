@@ -38,12 +38,14 @@
       <div class="col-sm-5">
         <input type="text" class="form-control" id="inputPassword13" name="confirmPassword" formControlName="confirmPassword">
         <div
-          *ngIf="!contactForm.controls.confirmPassword?.valid && (contactForm.controls.confirmPassword?.dirty
-    ||contactForm.controls.confirmPassword?.touched)" >
+          *ngIf="!contactForm.controls.confirmPassword?.valid && (contactForm.controls.confirmPassword?.dirty)" >
           <div [hidden]="!contactForm.controls.confirmPassword.errors.required">
             <p class="text-danger">please input</p>
           </div>
         </div>
+        <span class="text-danger" *ngIf="contactForm.errors?.mismatch&&contactForm.controls.confirmPassword?.dirty">
+          Password doesn't match
+        </span>
       </div>
     </div>
     <div class="row mb-3">

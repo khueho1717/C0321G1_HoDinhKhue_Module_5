@@ -18,18 +18,19 @@ export class RegisterComponent implements OnInit {
     age: new FormControl('',[Validators.required,Validators.min(18)]),
     gender: new FormControl('',[Validators.required]),
     phone: new FormControl('',[Validators.required,Validators.pattern(/^\+84 \d{9,10}$/)])
-  });
+  }, this.pwdMatchValidator);
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  checkPasswords: ValidatorFn = (contactForm: AbstractControl):  ValidationErrors | null => {
-    let pass = contactForm.get('password').value;
-    let confirmPass = contactForm.get('confirmPassword').value
-
-    return pass === confirmPass ? null : { notSame: true }
+  pwdMatchValidator(frm: FormGroup) {
+    if (frm.get('password').value != null && frm.get('confirmPassword').value != null){
+      return frm.get('password').value === frm.get('confirmPassword').value
+        ? null : {'mismatch': true};
+    }
+    return null;
   }
 
   onSubmit() {
