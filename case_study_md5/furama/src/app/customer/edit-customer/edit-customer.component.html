@@ -1,0 +1,108 @@
+
+<div class="col-10 m-auto p-5">
+  <h2>Customer Update</h2>
+  <a [routerLink]="'/customer'">
+    <button type="button" class="btn btn-warning ">Customer list</button>
+  </a>
+  <form [formGroup]="customerForm" (ngSubmit)="updateCustomer(id)">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="hidden" formControlName="id">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Enter email" formControlName="nameCustomer">
+        <div *ngIf="customerForm.controls.nameCustomer.dirty &&customerForm.controls.nameCustomer.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleInputEmail">Email</label>
+        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+               placeholder="Enter email" formControlName="email">
+        <div
+          *ngIf="!customerForm.controls.email?.valid && (customerForm.controls.email?.dirty)" >
+          <div [hidden]="!customerForm.controls.email.errors.required">
+            <p class="text-danger">please input</p>
+          </div>
+          <div [hidden]="!customerForm.controls.email.errors.email">
+            <p class="text-danger">no fomat email</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleInputPassword1">Brithday</label>
+        <input type="date" class="form-control" id="exampleInputPassword1" formControlName="birthDate">
+        <div *ngIf="customerForm.controls.birthDate.dirty &&customerForm.controls.birthDate.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCity3">Address</label>
+        <input type="text" class="form-control" id="inputCity3" formControlName="address">
+        <div *ngIf="customerForm.controls.address.dirty &&customerForm.controls.address.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCity7">Customer Code</label>
+        <input readonly type="text" class="form-control" id="inputCity7" formControlName="customerCode">
+        <div *ngIf="customerForm.controls.customerCode.dirty &&customerForm.controls.customerCode.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div *ngIf="customerForm.controls.customerCode.dirty &&customerForm.controls.customerCode.hasError('pattern')">
+          <p class="text-danger">Not the right format</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect4">Customer Type</label>
+        <select class="form-control" id="exampleFormControlSelect4" formControlName="customerType">
+          <option>Diamond</option>
+          <option>Platinium</option>
+          <option>Gold</option>
+          <option>Silver</option>
+          <option>Member</option>
+        </select>
+        <div *ngIf="customerForm.controls.customerType.touched &&customerForm.controls.customerType.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputCity2">ID Card</label>
+        <input type="text" class="form-control" id="inputCity2" formControlName="idCard">
+        <div *ngIf="customerForm.controls.idCard.dirty &&customerForm.controls.idCard.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div *ngIf="customerForm.controls.idCard.dirty &&customerForm.controls.idCard.hasError('pattern')">
+          <p class="text-danger">Not the right format 9 and 12 gear</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Gender</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="gender">
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="0">LGBT</option>
+        </select>
+        <div *ngIf="customerForm.controls.gender.touched &&customerForm.controls.gender.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Number Phone</label>
+        <input type="text" class="form-control" id="inputZip" formControlName="numberPhone">
+        <div *ngIf="customerForm.controls.numberPhone.dirty &&customerForm.controls.numberPhone.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div *ngIf="customerForm.controls.numberPhone.dirty &&customerForm.controls.numberPhone.hasError('pattern')">
+          <p class="text-danger">Not the right format (84)+ | 09[X]XXXXXXX"</p>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!customerForm.valid">Submit</button>
+  </form>
+</div>
+

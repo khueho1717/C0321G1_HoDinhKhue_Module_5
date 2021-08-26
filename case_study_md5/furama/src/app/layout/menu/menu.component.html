@@ -12,12 +12,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Customer</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item text-warning" href="/customers">Customer List</a>
-              <a class="dropdown-item text-warning" href="/customer-services">Customer Service</a>
+              <a class="dropdown-item text-warning" [routerLink]="'customer'">Customer List</a>
+              <a class="dropdown-item text-warning" [routerLink]="'customer'">Customer Service</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" href="/employees">Employee</a>
+            <a class="nav-link text-warning" [routerLink]="'employee'">Employee</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-warning" href="/services/create-service">Service</a>

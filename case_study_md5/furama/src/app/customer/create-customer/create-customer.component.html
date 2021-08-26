@@ -4,7 +4,7 @@
 
   <div class="col-10 m-auto p-5">
     <h2>Customer Create</h2>
-    <a href="/customers">
+    <a [routerLink]="'/customer'">
       <button type="button" class="btn btn-warning ">Customer list</button>
     </a>
     <form [formGroup]="customerForm" (ngSubmit)="submit()">

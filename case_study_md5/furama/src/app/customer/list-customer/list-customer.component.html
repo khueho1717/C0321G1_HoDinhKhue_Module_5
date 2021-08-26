@@ -1,6 +1,11 @@
-<app-header></app-header>
-<app-menu></app-menu>
+
 <h2 class="text-center">Customer List</h2>
+<a [routerLink]="'/customer/create'">
+  <button type="button" class="btn btn-warning ">Customer create</button>
+</a>
+<nav class="navbar">
+  <input class="form-control" type="text" name="search" [(ngModel)]="filter">
+</nav>
 <table class="table table-striped table-hover text-center">
   <thead class="text-secondary">
   <th>No</th>
@@ -14,9 +19,10 @@
   <th>Email</th>
   <th>Customer Type</th>
   <th>Address</th>
+  <th colspan="2"></th>
   </thead>
   <tbody>
-  <tr *ngFor="let c of customers;index as i">
+  <tr *ngFor="let c of customers| filter:filter| paginate: { itemsPerPage: 4, currentPage: p };index as i">
     <td>{{i + 1}}</td>
     <td>{{c.id}}</td>
     <td>{{c.customerCode}}</td>
@@ -30,12 +36,16 @@
         Female
       </span>
     </td>
-    <td>{{c.idCart}}</td>
+    <td>{{c.idCard}}</td>
     <td>{{c.numberPhone}}</td>
     <td>{{c.email}}</td>
     <td>{{c.customerType}}</td>
     <td>{{c.address}}</td>
+    <td ><a class="btn btn-primary" role="button" [routerLink]="['/customer/edit',c.id]">Edit</a></td>
+    <td ><a class="btn btn-danger" role="button" (click)="openDialog(c)">Delete</a></td>
   </tr>
   </tbody>
 </table>
-<app-footer></app-footer>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+

@@ -55,4 +55,22 @@ export class CustomerService {
   saveCustomer(customer: Customer) {
     this.customers.push(customer);
   }
+
+  findById(id: number){
+    return this.customers.find(customer => customer.id === id);
+  }
+
+  updateProduct(id: number, customer: Customer) {
+    for (let i = 0; i < this.customers.length; i++) {
+      if (this.customers[i].id === id) {
+        this.customers[i] = customer;
+      }
+    }
+  }
+
+  deleteProduct(id: number) {
+    this.customers = this.customers.filter(customer => {
+      return customer.id !== id;
+    });
+  }
 }

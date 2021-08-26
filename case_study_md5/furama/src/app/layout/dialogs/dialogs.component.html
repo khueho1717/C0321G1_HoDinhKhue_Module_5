@@ -1,0 +1,17 @@
+
+<div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Customer</h5>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete {{data.nameCustomer}}.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="deleteCustomer(data)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
