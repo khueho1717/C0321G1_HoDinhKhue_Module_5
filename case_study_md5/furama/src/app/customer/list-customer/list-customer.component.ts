@@ -3,6 +3,7 @@ import {Customer} from '../customer';
 import {CustomerService} from '../../services/customer.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {DialogsComponent} from '../../layout/dialogs/dialogs.component';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-customer',
@@ -10,6 +11,7 @@ import {DialogsComponent} from '../../layout/dialogs/dialogs.component';
   styleUrls: ['./list-customer.component.css']
 })
 export class ListCustomerComponent implements OnInit {
+
   public customers: Customer[] = [];
   p: number = 1;
   filter: any;
@@ -24,24 +26,29 @@ export class ListCustomerComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result != null){
+      if (result != null) {
         console.log(result);
         this.deleteRowData(result);
       }
     });
   }
+
   deleteRowData(customer) {
-    this.customers = this.customers.filter(c => {
-      return c.id !== customer.id;
-    });
+    this.customerService.deleteProduct(customer.id).subscribe(() => {
+        this.getAll();
+      }
+    );
   }
 
   ngOnInit(): void {
-    return this.getAll();
+    this.getAll();
   }
 
   getAll() {
-    this.customers = this.customerService.getAll();
+    this.customerService.getAll().subscribe(customers => {
+      this.customers = customers;
+      // console.log(this.customers);
+    });
   }
 
 }

@@ -1,76 +1,37 @@
 import {Injectable} from '@angular/core';
 import {Customer} from '../customer/customer';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+const API = 'http://localhost:3000/customers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  public customers: Customer[] = [
-    {
-      id: 1,
-      customerCode: 'KH-1234',
-      nameCustomer: 'Ho Dinh Khue',
-      birthDate: '1997-12-13',
-      gender: 1,
-      idCard: '21233435',
-      numberPhone: '09063242312',
-      email: 'khue@gmail.com',
-      customerType: 'Gold',
-      address: 'Quang Nam'
-    },
-    {
-      id: 2,
-      customerCode: 'KH-1434',
-      nameCustomer: 'Ho Dinh Lam',
-      birthDate: '1990-10-13',
-      gender: 1,
-      idCard: '21224435',
-      numberPhone: '0906364212',
-      email: 'lam@gmail.com',
-      customerType: 'Gold',
-      address: 'Quang Nam'
-    },
-    {
-      id: 3,
-      customerCode: 'KH-1434',
-      nameCustomer: 'Tran Kim Chi',
-      birthDate: '1990-10-13',
-      gender: 2,
-      idCard: '21224435',
-      numberPhone: '0906364212',
-      email: 'lam@gmail.com',
-      customerType: 'Gold',
-      address: 'Quang Nam'
-    }
-  ];
+  public customers: Customer[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getAll() {
-    return this.customers;
+  getAll(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(API);
   }
 
-  saveCustomer(customer: Customer) {
-    this.customers.push(customer);
+  saveCustomer(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(API, customer);
   }
 
-  findById(id: number){
-    return this.customers.find(customer => customer.id === id);
+  findById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(API + '/' + id);
   }
 
-  updateProduct(id: number, customer: Customer) {
-    for (let i = 0; i < this.customers.length; i++) {
-      if (this.customers[i].id === id) {
-        this.customers[i] = customer;
-      }
-    }
+  updateProduct(id: number, customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(API + '/' + id, customer);
   }
 
-  deleteProduct(id: number) {
-    this.customers = this.customers.filter(customer => {
-      return customer.id !== id;
-    });
+  deleteProduct(id: number): Observable<Customer> {
+    return this.http.delete<Customer>(API + '/' + id);
   }
 }

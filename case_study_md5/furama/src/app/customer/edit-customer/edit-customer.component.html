@@ -59,12 +59,8 @@
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="exampleFormControlSelect4">Customer Type</label>
-        <select class="form-control" id="exampleFormControlSelect4" formControlName="customerType">
-          <option>Diamond</option>
-          <option>Platinium</option>
-          <option>Gold</option>
-          <option>Silver</option>
-          <option>Member</option>
+        <select [compareWith]="compareTech" class="form-control" id="exampleFormControlSelect4" formControlName="customerType">
+          <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">{{customerType.customerTypeName}}</option>
         </select>
         <div *ngIf="customerForm.controls.customerType.touched &&customerForm.controls.customerType.hasError('required')">
           <p class="text-danger">please Choose</p>

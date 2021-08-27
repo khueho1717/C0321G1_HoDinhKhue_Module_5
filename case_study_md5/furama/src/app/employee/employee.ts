@@ -12,3 +12,5 @@ export interface Employee {
   division: string;
   employeeSalary: number;
 }
+
+

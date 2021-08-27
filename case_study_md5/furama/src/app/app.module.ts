@@ -23,6 +23,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogsComponent } from './layout/dialogs/dialogs.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DialogsComponent } from './layout/dialogs/dialogs.component';
     ListServiceComponent,
     ListContractComponent,
     EditCustomerComponent,
-    DialogsComponent
+    DialogsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +53,7 @@ import { DialogsComponent } from './layout/dialogs/dialogs.component';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    HttpClientModule
   ],
   entryComponents: [DialogsComponent],
   providers: [],

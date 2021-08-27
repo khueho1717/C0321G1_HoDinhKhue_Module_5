@@ -1,3 +1,5 @@
+import {CustomerType} from '../model/customer-type';
+
 export interface Customer {
   id: number;
   customerCode: string;
@@ -7,6 +9,6 @@ export interface Customer {
   idCard: string;
   numberPhone: string;
   email: string;
-  customerType: string;
+  customerType: CustomerType;
   address: string;
 }

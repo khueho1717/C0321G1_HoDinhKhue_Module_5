@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
 import {Customer} from '../customer';
+import {CustomerTypeService} from '../../services/customer-type.service';
+import {Router} from '@angular/router';
+import {CustomerType} from '../../model/customer-type';
 
 
 @Component({
@@ -10,6 +13,7 @@ import {Customer} from '../customer';
   styleUrls: ['./create-customer.component.css']
 })
 export class CreateCustomerComponent implements OnInit {
+  customerType: CustomerType[] = [];
   customerForm: FormGroup = new FormGroup({
     id: new FormControl(),
     customerCode: new FormControl('', [Validators.required, Validators.pattern('^KH-\\d{4}$')]),
@@ -23,17 +27,21 @@ export class CreateCustomerComponent implements OnInit {
     address: new FormControl('', [Validators.required])
   });
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.customerTypeService.getAllCustomerType().subscribe(date => {
+      this.customerType = date;
+    });
   }
 
   submit() {
-    const customer: Customer = this.customerForm.value;
-    customer.id = Math.floor(Math.random() * 1000);
-    console.log(customer);
-    this.customerService.saveCustomer(customer);
-    this.customerForm.reset();
+    this.customerService.saveCustomer(this.customerForm.value).subscribe(value => {
+      console.log(value);
+      this.router.navigateByUrl('product');
+    });
   }
 }

@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Customer} from '../customer';
+import {CustomerType} from '../../model/customer-type';
+import {CustomerTypeService} from '../../services/customer-type.service';
 
 @Component({
   selector: 'app-edit-customer',
@@ -10,36 +12,59 @@ import {Customer} from '../customer';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
-
+  customerTypes: CustomerType[] = [];
   customerForm: FormGroup;
   id: number;
 
   constructor(private customerService: CustomerService,
-              private activatedRoute: ActivatedRoute) {
-    this.id = Number(this.activatedRoute.snapshot.params.id);
-    const customer = this.customerService.findById(this.id);
-    this.customerForm = new FormGroup({
-      id: new FormControl(customer.id),
-      customerCode: new FormControl(customer.customerCode, [Validators.required, Validators.pattern('^KH-\\d{4}$')]),
-      nameCustomer: new FormControl(customer.nameCustomer, [Validators.required]),
-      birthDate: new FormControl(customer.birthDate, [Validators.required]),
-      gender: new FormControl(customer.gender, [Validators.required]),
-      idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern(/^\d{9}|\d{12}$/)]),
-      numberPhone: new FormControl(customer.numberPhone, [Validators.required, Validators.pattern(/^\+84 \d{9,10}$/)]),
-      email: new FormControl(customer.email, [Validators.required, Validators.email]),
-      customerType: new FormControl(customer.customerType, [Validators.required]),
-      address: new FormControl(customer.email, [Validators.required])
-    });
+              private activatedRoute: ActivatedRoute,
+              private customerTypeService: CustomerTypeService,
+              private router: Router) {
+    // this.customerService
+
   }
 
   ngOnInit(): void {
+    this.getData();
+    this.initFormEdit();
+    this.id = Number(this.activatedRoute.snapshot.params.id);
+    this.customerService.findById(this.id).subscribe(data => {
+      console.log(data);
+      this.customerForm.setValue(data);
+    });
+
   }
 
   updateCustomer(id: number) {
-    const customer: Customer = this.customerForm.value;
-    console.log(customer);
-    this.customerService.updateProduct(id, customer);
-    alert('Cập nhật thành công');
+    this.customerService.updateProduct(id, this.customerForm.value).subscribe(value => {
+      this.router.navigateByUrl('customer');
+    });
+  }
+
+  getData() {
+    this.customerTypeService.getAllCustomerType().subscribe(data => {
+      this.customerTypes = data;
+    });
+  }
+
+  initFormEdit() {
+
+    this.customerForm = new FormGroup({
+      id: new FormControl(''),
+      customerCode: new FormControl('', [Validators.required, Validators.pattern('^KH-\\d{4}$')]),
+      nameCustomer: new FormControl('', [Validators.required]),
+      birthDate: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+      idCard: new FormControl('', [Validators.required, Validators.pattern(/^\d{9}|\d{12}$/)]),
+      numberPhone: new FormControl('', [Validators.required, Validators.pattern(/^\+84 \d{9,10}$/)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      customerType: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required])
+    });
+  }
+
+  compareTech(t1: CustomerType, t2: CustomerType): boolean {
+    return t1 && t2 ? t1.id === t2.id : t1 === t2;
   }
 
 }
