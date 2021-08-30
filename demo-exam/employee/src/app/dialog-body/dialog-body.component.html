@@ -1,0 +1,29 @@
+
+<div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Employee</h5>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete {{data.employeeName}}.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="deleteEmployee(data)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<h1 mat-dialog-title>Hi {{data.employeeName}}</h1>-->
+<!--<div mat-dialog-content>-->
+<!--  <p>What's your favorite animal?</p>-->
+<!--  <mat-form-field appearance="fill">-->
+<!--    <mat-label>Favorite Animal</mat-label>-->
+<!--  </mat-form-field>-->
+<!--</div>-->
+<!--<div mat-dialog-actions>-->
+<!--  <button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>&ndash;&gt;-->
+<!--          <button type="button" class="btn btn-primary" (click)="deleteEmployee(data)">Delete</button>-->
+<!--</div>-->

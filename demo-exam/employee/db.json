@@ -1,0 +1,162 @@
+{
+  "position": [
+    {
+      "id": 1,
+      "positionName": "Lễ Tân"
+    },
+    {
+      "id": 2,
+      "positionName": "Phục Vụ"
+    },
+    {
+      "id": 3,
+      "positionName": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "positionName": "Giám sát"
+    },
+    {
+      "id": 5,
+      "positionName": "Quản lý"
+    },
+    {
+      "id": 6,
+      "positionName": "Giám đốc"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "divisionName": "Sale-Marketing"
+    },
+    {
+      "id": 2,
+      "divisionName": "Hành chính"
+    },
+    {
+      "id": 3,
+      "divisionName": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "divisionName": "Quản lý"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "educationDegreeName": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "educationDegreeName": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "educationDegreeName": "Đại học"
+    },
+    {
+      "id": 4,
+      "educationDegreeName": "Sau Đại học"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "employeeCode": "NV-1232",
+      "employeeName": "Ho Dinh Khue",
+      "employeeBirthday": "1997-04-23",
+      "employeeGender": 1,
+      "employeeIdCard": "123234323432",
+      "employeePhone": "+84 232343234",
+      "employeeEmail": "khue@gmail.com",
+      "employeeAddress": "Da Nang",
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      },
+      "division": {
+        "id": 2,
+        "divisionName": "Hành chính"
+      },
+      "employeeSalary": 500
+    },
+    {
+      "employeeCode": "NV-0987",
+      "employeeName": "Ho Dinh Dung",
+      "employeeBirthday": "2021-08-10",
+      "employeeGender": "1",
+      "employeeIdCard": "121232343454",
+      "employeePhone": "+84 123454232",
+      "employeeEmail": "dung@gmail.com",
+      "employeeAddress": "Ha Noi",
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      },
+      "division": {
+        "id": 3,
+        "divisionName": "Phục vụ"
+      },
+      "employeeSalary": 1000,
+      "id": 5
+    },
+    {
+      "employeeCode": "NV-8765",
+      "employeeName": "Tran Dinh Tien",
+      "employeeBirthday": "2000-08-10",
+      "employeeGender": "2",
+      "employeeIdCard": "245676788",
+      "employeePhone": "+84 461234542",
+      "employeeEmail": "admin@gmail.comdsdsd",
+      "employeeAddress": "Da Nang",
+      "educationDegree": {
+        "id": 3,
+        "educationDegreeName": "Đại học"
+      },
+      "position": {
+        "id": 4,
+        "positionName": "Giám sát"
+      },
+      "division": {
+        "id": 2,
+        "divisionName": "Hành chính"
+      },
+      "employeeSalary": 1230,
+      "id": 6
+    },
+    {
+      "employeeCode": "NV-2342",
+      "employeeName": "Nguyen Van Binh",
+      "employeeBirthday": "2000-08-03",
+      "employeeGender": "1",
+      "employeeIdCard": "212323433",
+      "employeePhone": "+84 4541234542",
+      "employeeEmail": "binh@gmail.com",
+      "employeeAddress": "Hai Phòng",
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      },
+      "division": {
+        "id": 2,
+        "divisionName": "Hành chính"
+      },
+      "employeeSalary": 1234,
+      "id": 7
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<div class="col-10 m-auto p-5">
+  <h2>Customer Create</h2>
+  <a [routerLink]="['/employee/list']">
+    <button type="button" class="btn btn-warning ">Customer list</button>
+  </a>
+  <!--suppress AngularUndefinedBinding -->
+  <form [formGroup]="employeeForm" (ngSubmit)="submit()">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleInputEmail1"><strong>Name</strong></label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Enter name" formControlName="employeeName">
+        <div *ngIf="employeeForm.controls.employeeName.dirty &&employeeForm.controls.employeeName.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleInputEmail">Email</label>
+        <input type="text" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+               placeholder="Enter email" formControlName="employeeEmail">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleInputPassword1">Brithday</label>
+        <input type="date" class="form-control" id="exampleInputPassword1" formControlName="employeeBirthday">
+        <div
+          *ngIf="employeeForm.controls.employeeBirthday.touched &&employeeForm.controls.employeeBirthday.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div
+          *ngIf="employeeForm.controls.employeeBirthday.dirty &&employeeForm.controls.employeeBirthday.hasError('checkAge')">
+          <p class="text-danger">required > 18 Age</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputCity3">Address</label>
+        <input type="text" class="form-control" id="inputCity3" formControlName="employeeAddress">
+        <div
+          *ngIf="employeeForm.controls.employeeAddress.dirty &&employeeForm.controls.employeeAddress.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCity7">Employee Code</label>
+        <input type="text" class="form-control" id="inputCity7" formControlName="employeeCode">
+        <div *ngIf="employeeForm.controls.employeeCode.dirty &&employeeForm.controls.employeeCode.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div *ngIf="employeeForm.controls.employeeCode.dirty &&employeeForm.controls.employeeCode.hasError('pattern')">
+          <p class="text-danger">Not the right format</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect6">Division</label>
+        <select class="form-control" id="exampleFormControlSelect6" formControlName="division">
+          <option *ngFor="let division of divisions" [ngValue]="division">{{division.divisionName}}</option>
+        </select>
+        <div *ngIf="employeeForm.controls.division.touched &&employeeForm.controls.division.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect4">Degree</label>
+        <select class="form-control" id="exampleFormControlSelect4" formControlName="educationDegree">
+          <option *ngFor="let degree of educationDegrees" [ngValue]="degree">{{degree.educationDegreeName}}</option>
+        </select>
+        <div
+          *ngIf="employeeForm.controls.educationDegree.touched &&employeeForm.controls.educationDegree.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1">Gender</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="employeeGender">
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+        <div
+          *ngIf="employeeForm.controls.employeeGender.touched &&employeeForm.controls.employeeGender.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputCity2">ID Card</label>
+        <input type="text" class="form-control" id="inputCity2" formControlName="employeeIdCard">
+        <div
+          *ngIf="employeeForm.controls.employeeIdCard.dirty &&employeeForm.controls.employeeIdCard.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div
+          *ngIf="employeeForm.controls.employeeIdCard.dirty &&employeeForm.controls.employeeIdCard.hasError('pattern')">
+          <p class="text-danger">Not the right format 9 and 12 gear</p>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Number Phone</label>
+        <input type="text" class="form-control" id="inputZip" formControlName="employeePhone">
+        <div
+          *ngIf="employeeForm.controls.employeePhone.dirty &&employeeForm.controls.employeePhone.hasError('required')">
+          <p class="text-danger">please input</p>
+        </div>
+        <div
+          *ngIf="employeeForm.controls.employeePhone.dirty &&employeeForm.controls.employeePhone.hasError('pattern')">
+          <p class="text-danger">Not the right format (84)+ | 09[X]XXXXXXX"</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect14">Position</label>
+        <select class="form-control" id="exampleFormControlSelect14" formControlName="position">
+          <option *ngFor="let position of positions" [ngValue]="position">{{position.positionName}}</option>
+        </select>
+        <div *ngIf="employeeForm.controls.position.touched &&employeeForm.controls.position.hasError('required')">
+          <p class="text-danger">please Choose</p>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputCity31">Salary</label>
+        <input type="number" class="form-control" id="inputCity31" formControlName="employeeSalary">
+        <div *ngIf="employeeForm.controls.employeeSalary.dirty &&employeeForm.controls.employeeSalary.hasError('min')">
+          <p class="text-danger">salary > 0</p>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">Submit</button>
+  </form>
+</div>
+

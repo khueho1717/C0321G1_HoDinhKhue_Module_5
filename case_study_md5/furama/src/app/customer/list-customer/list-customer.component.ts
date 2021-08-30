@@ -4,6 +4,7 @@ import {CustomerService} from '../../services/customer.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {DialogsComponent} from '../../layout/dialogs/dialogs.component';
 import {Route, Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-customer',
@@ -17,7 +18,8 @@ export class ListCustomerComponent implements OnInit {
   filter: any;
 
   constructor(private customerService: CustomerService,
-              private matDialog: MatDialog) {
+              private matDialog: MatDialog,
+              private snackBar: MatSnackBar) {
   }
 
   openDialog(customer: Customer) {
@@ -29,6 +31,7 @@ export class ListCustomerComponent implements OnInit {
       if (result != null) {
         console.log(result);
         this.deleteRowData(result);
+        this.snackBar.open('delete complete ' + result.nameCustomer , 'close');
       }
     });
   }

@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogsComponent } from './layout/dialogs/dialogs.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   entryComponents: [DialogsComponent],
   providers: [],

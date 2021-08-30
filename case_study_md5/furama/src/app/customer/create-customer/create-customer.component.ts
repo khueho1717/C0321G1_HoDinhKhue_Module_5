@@ -5,6 +5,7 @@ import {Customer} from '../customer';
 import {CustomerTypeService} from '../../services/customer-type.service';
 import {Router} from '@angular/router';
 import {CustomerType} from '../../model/customer-type';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class CreateCustomerComponent implements OnInit {
 
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
-              private router: Router) {
+              private router: Router,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class CreateCustomerComponent implements OnInit {
     this.customerService.saveCustomer(this.customerForm.value).subscribe(value => {
       console.log(value);
       this.router.navigateByUrl('product');
+      this.snackBar.open('create complete ' + value.nameCustomer , 'close');
     });
   }
 }

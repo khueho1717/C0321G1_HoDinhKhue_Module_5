@@ -10,8 +10,6 @@ const API = 'http://localhost:3000/customers';
 })
 export class CustomerService {
 
-  public customers: Customer[] = [];
-
   constructor(private http: HttpClient) {
   }
 

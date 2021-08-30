@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Customer} from '../customer';
 import {CustomerType} from '../../model/customer-type';
 import {CustomerTypeService} from '../../services/customer-type.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-customer',
@@ -19,7 +20,8 @@ export class EditCustomerComponent implements OnInit {
   constructor(private customerService: CustomerService,
               private activatedRoute: ActivatedRoute,
               private customerTypeService: CustomerTypeService,
-              private router: Router) {
+              private router: Router,
+              private snackBar: MatSnackBar) {
     // this.customerService
 
   }
@@ -38,6 +40,7 @@ export class EditCustomerComponent implements OnInit {
   updateCustomer(id: number) {
     this.customerService.updateProduct(id, this.customerForm.value).subscribe(value => {
       this.router.navigateByUrl('customer');
+      this.snackBar.open('update complete ' + value.nameCustomer , 'close');
     });
   }
 

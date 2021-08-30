@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Customer} from '../customer/customer';
 import {Employee} from '../employee/employee';
 
 @Injectable({

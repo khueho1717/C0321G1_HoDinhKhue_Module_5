@@ -31,7 +31,6 @@ export class TodoComponent implements OnInit {
     const value = this.content.value;
     if (value) {
       const todo: Todo = {
-        id: _id++,
         content: value,
         complete: false
       };
