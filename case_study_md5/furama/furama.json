@@ -59,6 +59,21 @@
         "customerTypeName": "Gold"
       },
       "address": "Da Nang"
+    },
+    {
+      "id": 6,
+      "customerCode": "KH-1239",
+      "nameCustomer": "Nguyen Van",
+      "birthDate": "2021-08-11",
+      "gender": "0",
+      "idCard": "1212243535",
+      "numberPhone": "+84 461234542",
+      "email": "admin@gmail.comdsdsd",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "address": "Da Nang"
     }
   ],
   "position": [

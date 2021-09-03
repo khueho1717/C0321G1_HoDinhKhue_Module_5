@@ -62,7 +62,7 @@
         <div class="form-group col-md-4">
           <label for="exampleFormControlSelect4">Customer Type</label>
           <select class="form-control" id="exampleFormControlSelect4" formControlName="customerType">
-            <option *ngFor="let cust of customerType" [ngValue]="customerType">{{cust.customerTypeName}}</option>
+            <option *ngFor="let cust of customerType" [ngValue]="cust">{{cust.customerTypeName}}</option>
           </select>
           <div *ngIf="customerForm.controls.customerType.touched &&customerForm.controls.customerType.hasError('required')">
             <p class="text-danger">please Choose</p>

@@ -55,7 +55,7 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   entryComponents: [DialogsComponent],
   providers: [],

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomerService} from '../../services/customer.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Customer} from '../customer';
 import {CustomerType} from '../../model/customer-type';
 import {CustomerTypeService} from '../../services/customer-type.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -40,7 +39,7 @@ export class EditCustomerComponent implements OnInit {
   updateCustomer(id: number) {
     this.customerService.updateProduct(id, this.customerForm.value).subscribe(value => {
       this.router.navigateByUrl('customer');
-      this.snackBar.open('update complete ' + value.nameCustomer , 'close');
+      this.snackBar.open('update complete ' + value.nameCustomer, 'close');
     });
   }
 

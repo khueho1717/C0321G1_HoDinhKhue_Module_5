@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmployeeService} from "../../service/employee.service";
 import {Employee} from "../../model/employee";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {MatDialog} from "@angular/material/dialog";
 import {DialogBodyComponent} from "../../dialog-body/dialog-body.component";
 import {DialogDetailComponent} from "../../dialog-detail/dialog-detail.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -16,6 +16,7 @@ export class ListEmployeeComponent implements OnInit {
   public employees: Employee[] = [];
   p: number = 1;
   filter: any;
+
 
   constructor(private employeeService: EmployeeService,
               private matDialog: MatDialog,
@@ -65,6 +66,15 @@ export class ListEmployeeComponent implements OnInit {
       this.employees = value;
       this.p = 1;
     })
+  }
+
+  //sorting
+  key: string = 'name'; //set default
+  reverse: boolean = false;
+  // @ts-ignore
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
 }
